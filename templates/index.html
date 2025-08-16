@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversational AI Agent</title>
+    <link rel="stylesheet" href="/static/style.css?v=4" />
+  </head>
+  <body>
+    <div class="agent-container">
+      <h1>🎙️ Vocalix</h1>
+
+      <!-- Chat history container -->
+      <div id="chatContainer"></div>
+
+      <!-- Single toggle button -->
+      <button id="recordButton" class="record-btn">🎤 Start Recording</button>
+
+      <!-- Hidden audio player -->
+      <audio id="echoAudioPlayer" style="display: none"></audio>
+
+      <!-- Status messages -->
+      <p id="echoStatusMessage"></p>
+    </div>
+
+    <script src="/static/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,145 @@
+
+/* Page background with light gradient */
+body {
+    /* font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    background: url('/static/processed_image_1920x1080.png') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dark, transparent gradient container */
+.agent-container {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(92, 108, 131, 0.5);
+    /* background-position: center center; */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 700px;
+    width: 100%;
+    z-index: 10;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00c6ff, #8cafd9); /* Your gradient colors */
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Chat styling */
+#chatContainer {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: #0d0712;
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+    text-align: left;
+    color: #fff;
+}
+
+.user-message {
+    background: rgba(33, 150, 243, 0.3);
+    padding: 6px;
+    margin: 4px 4px;
+    border-radius: 6px;
+}
+
+.assistant-message {
+    background: rgba(156, 39, 176, 0.3);
+    padding: 6px;
+    margin: 4px 4px;
+    border-radius: 6px;
+}
+
+.error-message {
+    background: rgba(244, 67, 54, 0.3);
+    color: #ffcccc;
+    padding: 6px;
+    margin: 4px 0;
+    border-radius: 6px;
+    font-style: italic;
+}
+
+/* Record button - bigger & more prominent */
+.record-btn {
+    background: radial-gradient(circle, #4CAF50 0%, #388E3C 100%);
+    color: white;
+    padding: 18px 36px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect - glow */
+.record-btn:hover {
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.8), 0 4px 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+/* Click effect - press down */
+.record-btn:active {
+    transform: scale(0.97);
+}
+
+/* Recording state - red with pulse & ripple animation */
+.record-btn.recording {
+    background: radial-gradient(circle, #d32f2f 0%, #b71c1c 100%);
+    animation: pulseGlow 1s infinite, ripple 1.5s infinite;
+    box-shadow: 0 0 25px rgba(211, 47, 47, 0.9);
+}
+
+/* Glow pulse animation */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(211, 47, 47, 0.7); }
+    50% { box-shadow: 0 0 25px rgba(211, 47, 47, 1); }
+    100% { box-shadow: 0 0 10px rgba(211, 47, 47, 0.7); }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(211, 47, 47, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0);
+    }
+}
+
+
