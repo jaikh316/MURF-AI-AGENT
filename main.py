@@ -12,6 +12,7 @@ from services.tts_service import TTSService
 from services.llm_service import LLMService
 from services.chat_service import ChatService
 from schemas import TTSRequest, TTSResponse, QueryResponse, ChatResponse
+from fastapi import WebSocket, WebSocketDisconnect
 
 # Load environment variables
 load_dotenv()
@@ -218,10 +219,25 @@ async def agent_chat(session_id: str, file: UploadFile = File(...)):
             error="unexpected_failure",
             details=str(e)
         )
+        
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    logger.info("New WebSocket connection established")
 
+    try:
+        while True:
+            data = await websocket.receive_text()
+            logger.info(f"Received via WebSocket: {data}")
+
+            # Echo the same message back
+            await websocket.send_text(f"Echo: {data}")
+    except WebSocketDisconnect:
+        logger.info("WebSocket connection closed")
 
 # Main entrypoint for Uvicorn
 if __name__ == "__main__":
     import uvicorn
     # Use only a single worker for in-memory state to work correctly
+
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True, workers=1)
